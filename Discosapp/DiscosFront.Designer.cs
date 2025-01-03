@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDiscos = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminarLogico = new System.Windows.Forms.Button();
             this.btnEliminarFisico = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,15 +65,15 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
+            // dgvDiscos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 58);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(530, 175);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiscos.Location = new System.Drawing.Point(43, 58);
+            this.dgvDiscos.Name = "dgvDiscos";
+            this.dgvDiscos.RowHeadersWidth = 51;
+            this.dgvDiscos.RowTemplate.Height = 24;
+            this.dgvDiscos.Size = new System.Drawing.Size(530, 175);
+            this.dgvDiscos.TabIndex = 2;
             // 
             // btnAgregar
             // 
@@ -207,13 +207,14 @@
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnEliminarLogico);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDiscos);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "DiscosApp";
             this.Text = "DiscosApp";
+            this.Load += new System.EventHandler(this.DiscosApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +224,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDiscos;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminarLogico;
         private System.Windows.Forms.Button btnEliminarFisico;

@@ -34,5 +34,11 @@ namespace Discosapp
                 textSerchName.Text = "Busqueda Por Nombre";
             }
         }
+
+        private void DiscosApp_Load(object sender, EventArgs e)
+        {
+            DiscoNegocio negocio = new DiscoNegocio();
+            dgvDiscos.DataSource = negocio.Listar();
+        }
     }
 }
