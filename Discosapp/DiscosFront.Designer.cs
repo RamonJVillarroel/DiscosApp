@@ -44,7 +44,7 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSerchName = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxDisco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +60,7 @@
             // 
             // pboxDisco
             // 
-            this.pboxDisco.Location = new System.Drawing.Point(624, 58);
+            this.pboxDisco.Location = new System.Drawing.Point(720, 58);
             this.pboxDisco.Name = "pboxDisco";
             this.pboxDisco.Size = new System.Drawing.Size(230, 175);
             this.pboxDisco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -74,7 +74,7 @@
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.RowHeadersWidth = 51;
             this.dgvDiscos.RowTemplate.Height = 24;
-            this.dgvDiscos.Size = new System.Drawing.Size(575, 175);
+            this.dgvDiscos.Size = new System.Drawing.Size(653, 175);
             this.dgvDiscos.TabIndex = 2;
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
@@ -128,6 +128,7 @@
             this.textSerchName.Name = "textSerchName";
             this.textSerchName.Size = new System.Drawing.Size(185, 22);
             this.textSerchName.TabIndex = 8;
+            this.textSerchName.Tag = "";
             this.textSerchName.Text = "Busca el nombre de tu disco";
             this.textSerchName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textSerchName_MouseClick);
             this.textSerchName.Leave += new System.EventHandler(this.textSerchName_Leave);
@@ -192,21 +193,22 @@
             this.comboBox2.Size = new System.Drawing.Size(104, 24);
             this.comboBox2.TabIndex = 17;
             // 
-            // button2
+            // btnSerchName
             // 
-            this.button2.Location = new System.Drawing.Point(318, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 26);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSerchName.Location = new System.Drawing.Point(318, 28);
+            this.btnSerchName.Name = "btnSerchName";
+            this.btnSerchName.Size = new System.Drawing.Size(66, 26);
+            this.btnSerchName.TabIndex = 18;
+            this.btnSerchName.Text = "Buscar";
+            this.btnSerchName.UseVisualStyleBackColor = true;
+            this.btnSerchName.Click += new System.EventHandler(this.btnSerchName_Click);
             // 
             // DiscosApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 414);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(971, 428);
+            this.Controls.Add(this.btnSerchName);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtFiltroAvanzado);
@@ -223,7 +225,9 @@
             this.Controls.Add(this.dgvDiscos);
             this.Controls.Add(this.pboxDisco);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DiscosApp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DiscosApp";
             this.Load += new System.EventHandler(this.DiscosApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboxDisco)).EndInit();
@@ -251,7 +255,7 @@
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSerchName;
     }
 }
 

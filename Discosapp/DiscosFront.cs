@@ -41,6 +41,7 @@ namespace Discosapp
             DiscoNegocio negocio = new DiscoNegocio();
             listaDisco = negocio.Listar();
             dgvDiscos.DataSource = listaDisco;
+            dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
             pboxDisco.Load(listaDisco[0].UrlImagenTapa);
         }
         //trabando con imagenes
@@ -61,6 +62,13 @@ namespace Discosapp
                 pboxDisco.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDCXek_M1agTePOBcSZfP1O9qobtNXYz4OVg&s");
             }
 
+        }
+
+        private void btnSerchName_Click(object sender, EventArgs e)
+        {
+            string name = textSerchName.Text;
+            MessageBox.Show(name);
+            
         }
     }
 }
