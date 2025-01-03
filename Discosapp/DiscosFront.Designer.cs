@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pboxDisco = new System.Windows.Forms.PictureBox();
             this.dgvDiscos = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminarLogico = new System.Windows.Forms.Button();
@@ -44,7 +44,8 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxDisco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,13 +58,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fitro Rapido";
             // 
-            // pictureBox1
+            // pboxDisco
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(624, 58);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 175);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pboxDisco.Location = new System.Drawing.Point(624, 58);
+            this.pboxDisco.Name = "pboxDisco";
+            this.pboxDisco.Size = new System.Drawing.Size(230, 175);
+            this.pboxDisco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxDisco.TabIndex = 1;
+            this.pboxDisco.TabStop = false;
             // 
             // dgvDiscos
             // 
@@ -72,8 +74,9 @@
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.RowHeadersWidth = 51;
             this.dgvDiscos.RowTemplate.Height = 24;
-            this.dgvDiscos.Size = new System.Drawing.Size(530, 175);
+            this.dgvDiscos.Size = new System.Drawing.Size(575, 175);
             this.dgvDiscos.TabIndex = 2;
+            this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
             // btnAgregar
             // 
@@ -123,9 +126,9 @@
             // 
             this.textSerchName.Location = new System.Drawing.Point(127, 28);
             this.textSerchName.Name = "textSerchName";
-            this.textSerchName.Size = new System.Drawing.Size(162, 22);
+            this.textSerchName.Size = new System.Drawing.Size(185, 22);
             this.textSerchName.TabIndex = 8;
-            this.textSerchName.Text = "Busqueda Por Nombre";
+            this.textSerchName.Text = "Busca el nombre de tu disco";
             this.textSerchName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textSerchName_MouseClick);
             this.textSerchName.Leave += new System.EventHandler(this.textSerchName_Leave);
             // 
@@ -189,11 +192,21 @@
             this.comboBox2.Size = new System.Drawing.Size(104, 24);
             this.comboBox2.TabIndex = 17;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(318, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(66, 26);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // DiscosApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 414);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtFiltroAvanzado);
@@ -208,12 +221,12 @@
             this.Controls.Add(this.btnEliminarLogico);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvDiscos);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pboxDisco);
             this.Controls.Add(this.label1);
             this.Name = "DiscosApp";
             this.Text = "DiscosApp";
             this.Load += new System.EventHandler(this.DiscosApp_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxDisco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -223,7 +236,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pboxDisco;
         private System.Windows.Forms.DataGridView dgvDiscos;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminarLogico;
@@ -238,6 +251,7 @@
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

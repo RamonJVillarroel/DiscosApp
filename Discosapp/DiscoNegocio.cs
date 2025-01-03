@@ -22,7 +22,7 @@ namespace Discosapp
                 
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=DISCOS_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select titulo from DISCOS";
+                comando.CommandText = "select Id, titulo, FechaLanzamiento, CantidadCanciones,UrlImagenTapa from DISCOS;";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -31,7 +31,11 @@ namespace Discosapp
                 while (lector.Read())
                 {
                     Disco aux = new Disco();
+                    aux.IdDisco = (int)lector["Id"];
                     aux.Nombre = (string)lector["titulo"];
+                    aux.CantidadDeCanciones = (int)lector["CantidadCanciones"];
+                    aux.UrlImagenTapa = (string)lector["UrlImagenTapa"];
+                    // aux.fechaDeLanzamiento = (string)lector["FechaLanzamiento"];
                     lista.Add(aux);
                 }
                 conexion.Close();

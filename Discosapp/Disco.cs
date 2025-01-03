@@ -14,6 +14,6 @@ namespace Discosapp
         public string fechaDeLanzamiento { get; set; }
         public int CantidadDeCanciones { get; set; }
 
-
+        public string UrlImagenTapa { get; set; }
     }
 }

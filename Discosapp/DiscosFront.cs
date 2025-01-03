@@ -12,6 +12,7 @@ namespace Discosapp
 {
     public partial class DiscosApp : Form
     {
+        private List<Disco> listaDisco;
         public DiscosApp()
         {
             InitializeComponent();
@@ -38,7 +39,28 @@ namespace Discosapp
         private void DiscosApp_Load(object sender, EventArgs e)
         {
             DiscoNegocio negocio = new DiscoNegocio();
-            dgvDiscos.DataSource = negocio.Listar();
+            listaDisco = negocio.Listar();
+            dgvDiscos.DataSource = listaDisco;
+            pboxDisco.Load(listaDisco[0].UrlImagenTapa);
+        }
+        //trabando con imagenes
+        private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
+        {
+           
+               Disco DiscoSeleccionado= (Disco)dgvDiscos.CurrentRow.DataBoundItem;//para obttener el objeto enlazado, se transforma con un casteo explicito
+               //pboxDisco.Load(DiscoSeleccionado.UrlImagenTapa);//despues se puede realizar la carga
+                cargarImagen(DiscoSeleccionado.UrlImagenTapa);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pboxDisco.Load(imagen);
+            }
+            catch (Exception ex) {
+                pboxDisco.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDCXek_M1agTePOBcSZfP1O9qobtNXYz4OVg&s");
+            }
+
         }
     }
 }
