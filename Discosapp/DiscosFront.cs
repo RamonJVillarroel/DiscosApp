@@ -41,6 +41,7 @@ namespace Discosapp
             DiscoNegocio negocio = new DiscoNegocio();
             listaDisco = negocio.Listar();
             dgvDiscos.DataSource = listaDisco;
+            //dgvDiscos.Columns["FechaLanzamiento"].Visible = false;
             dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
             pboxDisco.Load(listaDisco[0].UrlImagenTapa);
         }
@@ -70,5 +71,7 @@ namespace Discosapp
             MessageBox.Show(name);
             
         }
+
+       
     }
 }

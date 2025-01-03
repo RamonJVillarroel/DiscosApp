@@ -55,7 +55,7 @@
     <Compile Include="DiscosFront.Designer.cs">
       <DependentUpon>DiscosFront.cs</DependentUpon>
     </Compile>
-    <Compile Include="Estilos.cs" />
+    <Compile Include="Genero.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DiscosFront.resx">

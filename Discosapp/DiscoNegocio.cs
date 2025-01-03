@@ -22,7 +22,7 @@ namespace Discosapp
                 
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=DISCOS_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select Id, titulo, FechaLanzamiento, CantidadCanciones,UrlImagenTapa from DISCOS;";
+                comando.CommandText = "SELECT d.Id, titulo, CantidadCanciones,UrlImagenTapa, e.Descripcion as Genero  from DISCOS as D inner join ESTILOS as e on d.IdEstilo=e.Id;";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -35,6 +35,9 @@ namespace Discosapp
                     aux.Nombre = (string)lector["titulo"];
                     aux.CantidadDeCanciones = (int)lector["CantidadCanciones"];
                     aux.UrlImagenTapa = (string)lector["UrlImagenTapa"];
+                    //Se le tiene que crear una instancia porque si no se crea una referencia nula
+                    aux.Genero = new Genero();
+                    aux.Genero.Descripcion = (string)lector["Genero"];
                     // aux.fechaDeLanzamiento = (string)lector["FechaLanzamiento"];
                     lista.Add(aux);
                 }

@@ -60,7 +60,7 @@
             // 
             // pboxDisco
             // 
-            this.pboxDisco.Location = new System.Drawing.Point(720, 58);
+            this.pboxDisco.Location = new System.Drawing.Point(795, 58);
             this.pboxDisco.Name = "pboxDisco";
             this.pboxDisco.Size = new System.Drawing.Size(230, 175);
             this.pboxDisco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -74,7 +74,7 @@
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.RowHeadersWidth = 51;
             this.dgvDiscos.RowTemplate.Height = 24;
-            this.dgvDiscos.Size = new System.Drawing.Size(653, 175);
+            this.dgvDiscos.Size = new System.Drawing.Size(735, 175);
             this.dgvDiscos.TabIndex = 2;
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
@@ -168,6 +168,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
+          
             // 
             // txtFiltroAvanzado
             // 
@@ -207,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 428);
+            this.ClientSize = new System.Drawing.Size(1053, 461);
             this.Controls.Add(this.btnSerchName);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
