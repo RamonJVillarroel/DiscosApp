@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Collections;
-using System.Xml.Linq;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+//using System.Windows.Forms;
+//using System.Collections;
+//using System.Xml.Linq;
 using System.Data.SqlClient;
-namespace Discosapp
+using dominio;
+namespace negocio
 {
-    internal class DiscoNegocio
+    public class DiscoNegocio
     {
         public List<Disco> Listar()
         {

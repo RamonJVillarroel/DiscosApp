@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Discosapp
+namespace dominio
 {
-    internal class Genero
+    public class Genero
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
