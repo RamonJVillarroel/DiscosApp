@@ -44,6 +44,7 @@ namespace negocio
             try
             {
                 conexion.Open();
+                //para ejecutar query
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex) { throw ex; }
