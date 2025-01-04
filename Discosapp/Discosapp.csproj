@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDisco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDisco.Designer.cs">
+      <DependentUpon>AddDisco.cs</DependentUpon>
+    </Compile>
     <Compile Include="DiscosFront.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddDisco.resx">
+      <DependentUpon>AddDisco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DiscosFront.resx">
       <DependentUpon>DiscosFront.cs</DependentUpon>
     </EmbeddedResource>

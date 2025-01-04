@@ -45,5 +45,26 @@ namespace negocio
                 datos.terminarConexion();
             }
         }
+        public void agregar(Disco NuevoDisco)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                //para insertar datos se puede hacer de esta forma
+                string consulta = "INSERT INTO DISCOS(Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa, IdEstilo, IdTipoEdicion)VALUES('"+ NuevoDisco.Nombre + "',GETDATE()," + NuevoDisco.CantidadDeCanciones+",'"+NuevoDisco.UrlImagenTapa+"', 6, 5);";
+                datos.setearConsulta(consulta);
+                //importante para poder ejecutar datos
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex) { 
+              throw ex;
+            }
+            finally
+            {
+                datos.terminarConexion();
+            }
+
+        }
+        
     }
 }

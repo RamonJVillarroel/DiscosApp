@@ -73,6 +73,10 @@ namespace Discosapp
             
         }
 
-       
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            AddDisco addDisco = new AddDisco();
+            addDisco.ShowDialog();
+        }
     }
 }

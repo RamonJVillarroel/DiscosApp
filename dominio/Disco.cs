@@ -12,7 +12,7 @@ namespace dominio
         public int IdDisco { get; set; }
         public string Nombre { get; set; }
 
-       // public string fechaDeLanzamiento { get; set; }
+       // public DateTime fechaDeLanzamiento { get; set; }
         public int CantidadDeCanciones { get; set; }
 
         public string UrlImagenTapa { get; set; }
