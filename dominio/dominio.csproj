@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Disco.cs" />
     <Compile Include="Genero.cs" />
+    <Compile Include="Plataforma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

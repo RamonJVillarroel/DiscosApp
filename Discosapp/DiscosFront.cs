@@ -39,12 +39,7 @@ namespace Discosapp
 
         private void DiscosApp_Load(object sender, EventArgs e)
         {
-            DiscoNegocio negocio = new DiscoNegocio();
-            listaDisco = negocio.Listar();
-            dgvDiscos.DataSource = listaDisco;
-            //dgvDiscos.Columns["FechaLanzamiento"].Visible = false;
-            dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
-            pboxDisco.Load(listaDisco[0].UrlImagenTapa);
+            cargarDiscos();
         }
         //trabando con imagenes
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
@@ -77,6 +72,26 @@ namespace Discosapp
         {
             AddDisco addDisco = new AddDisco();
             addDisco.ShowDialog();
+            cargarDiscos();
+        }
+
+
+        private void cargarDiscos()
+        {
+            try
+            {
+                DiscoNegocio negocio = new DiscoNegocio();
+                listaDisco = negocio.Listar();
+                dgvDiscos.DataSource = listaDisco;
+                //dgvDiscos.Columns["FechaLanzamiento"].Visible = false;
+                dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
+                pboxDisco.Load(listaDisco[0].UrlImagenTapa);
+            }
+            catch (Exception ex) { 
+
+                MessageBox.Show(ex.Message);  
+         
+            }
         }
     }
 }
