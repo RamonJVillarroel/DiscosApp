@@ -18,5 +18,7 @@ namespace dominio
         public string UrlImagenTapa { get; set; }
 
         public Genero Genero { get; set; }
+
+        public Plataforma Plataforma { get; set; }
     }
 }

@@ -57,6 +57,11 @@ namespace negocio
             }
             conexion.Close();
         }
+        //hacmos la linea de abajo para poder setear consultas con @ es decir por parametros
+        public void setearParametro(string parametro, object valor)
+        {
+            comando.Parameters.AddWithValue(parametro, valor);
+        }
 
     }
 }
