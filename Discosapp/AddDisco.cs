@@ -13,9 +13,23 @@ namespace Discosapp
 {
     public partial class AddDisco : Form
     {
+        //crear el atributo privado para el elemento modificar
+        // esto debido a que
+        //
+        // con esto logramos que cuando se cargue la app este nulo en la carga,
+        //pero al querer modificar va a cargar el objeto a modificar
+        //esto crea un pasamano entre ventanas
+        private Disco disco=null;
         public AddDisco()
         {
             InitializeComponent();
+        }
+        public AddDisco(Disco Disco)
+        {
+            InitializeComponent();
+            this.disco = Disco;
+            Text = "Update Disco";
+            sendDisco.Text = "Actualizar";
         }
 
         private void CancelarDisco_Click(object sender, EventArgs e)
@@ -25,24 +39,33 @@ namespace Discosapp
 
         private void sendDisco_Click(object sender, EventArgs e)
         {
-            Disco NuevoDisco = new Disco();
             DiscoNegocio discoNegocio = new DiscoNegocio();
-           
-           
+
             try
             {
-               
-                NuevoDisco.Nombre = txttitulo.Text;
-                NuevoDisco.CantidadDeCanciones = int.Parse(txtCanciones.Text);
-                NuevoDisco.UrlImagenTapa = txtUrlimagen.Text;
+                if (disco==null)
+                    disco = new Disco();
+
+                disco.Nombre = txttitulo.Text;
+                disco.CantidadDeCanciones = int.Parse(txtCanciones.Text);
+                disco.UrlImagenTapa = txtUrlimagen.Text;
                 //para que el disco pueda seleccionar el valor del combo box se usa selecte item
                 // pero el select item devuelve un object
                 //por lo tanto como se que lo que tengo es una clase puedo hacer el casteo.
                 //porque se que viene es una clase
-                NuevoDisco.Genero = (Genero)cboxGenero.SelectedItem;
-                NuevoDisco.Plataforma = (Plataforma)cboxPlataforma.SelectedItem;
-                discoNegocio.agregar(NuevoDisco);
-                MessageBox.Show("NUEVO DISCO AGREGADO!!!!");
+                disco.Genero = (Genero)cboxGenero.SelectedItem;
+                disco.Plataforma = (Plataforma)cboxPlataforma.SelectedItem;
+                //Como ver cual ejecutar
+                if (disco.IdDisco != 0)
+                {
+                    discoNegocio.modificar(disco);
+                    MessageBox.Show("MODIFICADO!!!!");
+                }
+                else {
+                    discoNegocio.agregar(disco);
+                    MessageBox.Show("NUEVO DISCO AGREGADO!!!!");
+                }
+
                 Close();
             }
             catch (Exception ex)
@@ -78,8 +101,10 @@ namespace Discosapp
             try
             {
                 PlataformaNegocio plataformaNegocio = new PlataformaNegocio();
-                cboxPlataforma.DataSource= plataformaNegocio.Listar();
-              
+                cboxPlataforma.DataSource = plataformaNegocio.Listar();
+                //modificacion para los desplegables en modificar
+                cboxPlataforma.ValueMember = "Id";
+                cboxPlataforma.DisplayMember = "Descripcion";
             }
             catch (Exception ex) { 
 
@@ -94,7 +119,9 @@ namespace Discosapp
             {
                 GenerosNegocio generoNegocio = new GenerosNegocio();
                 cboxGenero.DataSource = generoNegocio.Listar();
-
+                //modificacion para los desplegables en modificar
+                cboxGenero.ValueMember = "Id";
+                cboxGenero.DisplayMember = "Descripcion";
             }
             catch (Exception ex){
             MessageBox.Show(ex.ToString());
@@ -103,8 +130,27 @@ namespace Discosapp
 
         private void AddDisco_Load(object sender, EventArgs e)
         {
-            cargarPlataforma();
-            cargarGenero();
+            try
+            {
+                cargarPlataforma();
+                cargarGenero();
+
+                if (disco !=null)
+                {
+                  txttitulo.Text =disco.Nombre;
+                  txtCanciones.Text = disco.CantidadDeCanciones.ToString();
+                  txtUrlimagen.Text = disco.UrlImagenTapa;
+                  cargarImagen(disco.UrlImagenTapa);
+                  //con esto me aseguro de poder llamar a los desplegables a modificar
+                  //modificar la consulta inicial
+                  cboxGenero.SelectedValue = disco.Genero.Id;
+                  cboxPlataforma.SelectedValue= disco.Plataforma.Id;
+                    //MessageBox.Show("NUEVO DISCO AGREGADO!!!!");
+
+                }
+            }
+            catch (Exception ex){  throw new Exception(ex.ToString()); }   
+            
         }
     }
 }

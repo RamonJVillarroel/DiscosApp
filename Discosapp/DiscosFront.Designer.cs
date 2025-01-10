@@ -124,6 +124,7 @@
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // label2
             // 
@@ -185,7 +186,7 @@
             // txtFiltroAvanzado
             // 
             this.txtFiltroAvanzado.Location = new System.Drawing.Point(413, 320);
-            this.txtFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(105, 22);
             this.txtFiltroAvanzado.TabIndex = 15;

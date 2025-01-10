@@ -93,5 +93,18 @@ namespace Discosapp
          
             }
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {   
+            //instanicio lo que quiero modificar
+            Disco seleccionado;
+            seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+            //se lo debo pasar al formuladio que debo de modificar para que genere la nueva instancia con el parametro a recibir
+            //min 4
+            //
+            AddDisco modificar = new AddDisco(seleccionado);
+            modificar.ShowDialog();
+            cargarDiscos();
+        }
     }
 }
