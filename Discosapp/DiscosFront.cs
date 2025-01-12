@@ -126,18 +126,20 @@ namespace Discosapp
                 if (result == DialogResult.Yes)
                 {
                     seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+
                     if (logico)
                         disco.eliminarLogico(seleccionado.IdDisco);
                     else
-                        disco.elimnar(seleccionado.IdDisco);
+                        disco.eliminar(seleccionado.IdDisco);
                     cargarDiscos();
+  
+
                 }
 
             }
             catch (Exception ex) { throw ex; }
 
         }
-
         private void btnEliminarLogico_Click(object sender, EventArgs e)
         {
             //para que pueda ser logico se debe setear en tru ya que
