@@ -52,18 +52,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 31);
+            this.label1.Location = new System.Drawing.Point(30, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fitro Rapido";
             // 
             // pboxDisco
             // 
-            this.pboxDisco.Location = new System.Drawing.Point(795, 58);
-            this.pboxDisco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pboxDisco.Location = new System.Drawing.Point(596, 47);
+            this.pboxDisco.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pboxDisco.Name = "pboxDisco";
-            this.pboxDisco.Size = new System.Drawing.Size(229, 175);
+            this.pboxDisco.Size = new System.Drawing.Size(172, 142);
             this.pboxDisco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxDisco.TabIndex = 1;
             this.pboxDisco.TabStop = false;
@@ -73,23 +74,23 @@
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiscos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDiscos.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvDiscos.Location = new System.Drawing.Point(43, 58);
-            this.dgvDiscos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDiscos.Location = new System.Drawing.Point(32, 47);
+            this.dgvDiscos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.RowHeadersWidth = 51;
             this.dgvDiscos.RowTemplate.Height = 24;
             this.dgvDiscos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDiscos.Size = new System.Drawing.Size(735, 175);
+            this.dgvDiscos.Size = new System.Drawing.Size(551, 142);
             this.dgvDiscos.TabIndex = 2;
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(43, 249);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregar.Location = new System.Drawing.Point(32, 202);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(128, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(96, 24);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -97,30 +98,31 @@
             // 
             // btnEliminarLogico
             // 
-            this.btnEliminarLogico.Location = new System.Drawing.Point(445, 249);
-            this.btnEliminarLogico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarLogico.Location = new System.Drawing.Point(334, 202);
+            this.btnEliminarLogico.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarLogico.Name = "btnEliminarLogico";
-            this.btnEliminarLogico.Size = new System.Drawing.Size(128, 30);
+            this.btnEliminarLogico.Size = new System.Drawing.Size(96, 24);
             this.btnEliminarLogico.TabIndex = 4;
             this.btnEliminarLogico.Text = "Eliminar Logico";
             this.btnEliminarLogico.UseVisualStyleBackColor = true;
             // 
             // btnEliminarFisico
             // 
-            this.btnEliminarFisico.Location = new System.Drawing.Point(311, 249);
-            this.btnEliminarFisico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarFisico.Location = new System.Drawing.Point(233, 202);
+            this.btnEliminarFisico.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarFisico.Name = "btnEliminarFisico";
-            this.btnEliminarFisico.Size = new System.Drawing.Size(128, 30);
+            this.btnEliminarFisico.Size = new System.Drawing.Size(96, 24);
             this.btnEliminarFisico.TabIndex = 5;
             this.btnEliminarFisico.Text = "Eliminar Fisico";
             this.btnEliminarFisico.UseVisualStyleBackColor = true;
+            this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(177, 249);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditar.Location = new System.Drawing.Point(133, 202);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(128, 30);
+            this.btnEditar.Size = new System.Drawing.Size(96, 24);
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -129,17 +131,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 31);
+            this.label2.Location = new System.Drawing.Point(104, 25);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 7;
             // 
             // textSerchName
             // 
-            this.textSerchName.Location = new System.Drawing.Point(127, 28);
-            this.textSerchName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textSerchName.Location = new System.Drawing.Point(95, 23);
+            this.textSerchName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textSerchName.Name = "textSerchName";
-            this.textSerchName.Size = new System.Drawing.Size(185, 22);
+            this.textSerchName.Size = new System.Drawing.Size(140, 20);
             this.textSerchName.TabIndex = 8;
             this.textSerchName.Tag = "";
             this.textSerchName.Text = "Busca el nombre de tu disco";
@@ -149,72 +152,74 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 322);
+            this.label3.Location = new System.Drawing.Point(14, 262);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 16);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Campo";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(199, 322);
+            this.label4.Location = new System.Drawing.Point(149, 262);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 16);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Criterio";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(371, 322);
+            this.label5.Location = new System.Drawing.Point(278, 262);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 16);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Filtro";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(531, 318);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(398, 258);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 30);
+            this.button1.Size = new System.Drawing.Size(58, 24);
             this.button1.TabIndex = 12;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // txtFiltroAvanzado
             // 
-            this.txtFiltroAvanzado.Location = new System.Drawing.Point(413, 320);
-            this.txtFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(310, 260);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
-            this.txtFiltroAvanzado.Size = new System.Drawing.Size(105, 22);
+            this.txtFiltroAvanzado.Size = new System.Drawing.Size(80, 20);
             this.txtFiltroAvanzado.TabIndex = 15;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(253, 319);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Location = new System.Drawing.Point(190, 259);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(113, 24);
+            this.comboBox1.Size = new System.Drawing.Size(86, 21);
             this.comboBox1.TabIndex = 16;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(89, 318);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox2.Location = new System.Drawing.Point(67, 258);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(104, 24);
+            this.comboBox2.Size = new System.Drawing.Size(79, 21);
             this.comboBox2.TabIndex = 17;
             // 
             // btnSerchName
             // 
-            this.btnSerchName.Location = new System.Drawing.Point(317, 28);
-            this.btnSerchName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSerchName.Location = new System.Drawing.Point(238, 23);
+            this.btnSerchName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSerchName.Name = "btnSerchName";
-            this.btnSerchName.Size = new System.Drawing.Size(67, 26);
+            this.btnSerchName.Size = new System.Drawing.Size(50, 21);
             this.btnSerchName.TabIndex = 18;
             this.btnSerchName.Text = "Buscar";
             this.btnSerchName.UseVisualStyleBackColor = true;
@@ -222,9 +227,9 @@
             // 
             // DiscosApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 462);
+            this.ClientSize = new System.Drawing.Size(790, 375);
             this.Controls.Add(this.btnSerchName);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
@@ -243,7 +248,7 @@
             this.Controls.Add(this.pboxDisco);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DiscosApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DiscosApp";

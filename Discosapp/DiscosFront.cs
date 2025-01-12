@@ -106,5 +106,24 @@ namespace Discosapp
             modificar.ShowDialog();
             cargarDiscos();
         }
+
+        private void btnEliminarFisico_Click(object sender, EventArgs e)
+        {
+            DiscoNegocio disco = new DiscoNegocio();
+            Disco seleccionado;
+            try
+            {
+                DialogResult result = MessageBox.Show("Quieres eliminar este activo?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes) {
+                    seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+                    disco.elimnar(seleccionado.IdDisco);
+                    cargarDiscos();
+
+                }
+
+            }
+            catch (Exception ex){ throw ex; }
+         
+        }
     }
 }
