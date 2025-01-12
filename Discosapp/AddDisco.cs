@@ -34,7 +34,9 @@ namespace Discosapp
 
         private void CancelarDisco_Click(object sender, EventArgs e)
         {
+           
             Close();
+          
         }
 
         private void sendDisco_Click(object sender, EventArgs e)

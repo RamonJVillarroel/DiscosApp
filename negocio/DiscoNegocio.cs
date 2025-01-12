@@ -95,7 +95,7 @@ namespace negocio
             catch (Exception ex) { throw  ex; }
             finally { datos.terminarConexion(); }
         }
-        public void elimnar(int idDisco)
+        public void eliminar(int idDisco)
         {
             try {
                 AccesoDatos datos = new AccesoDatos();

@@ -117,7 +117,7 @@ namespace Discosapp
                 if (result == DialogResult.Yes) {
                     seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
                     disco.elimnar(seleccionado.IdDisco);
-                    cargarDiscos();
+                   // cargarDiscos();
 
                 }
 
