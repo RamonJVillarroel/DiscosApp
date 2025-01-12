@@ -105,6 +105,7 @@
             this.btnEliminarLogico.TabIndex = 4;
             this.btnEliminarLogico.Text = "Eliminar Logico";
             this.btnEliminarLogico.UseVisualStyleBackColor = true;
+            this.btnEliminarLogico.Click += new System.EventHandler(this.btnEliminarLogico_Click);
             // 
             // btnEliminarFisico
             // 

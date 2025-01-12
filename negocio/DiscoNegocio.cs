@@ -12,7 +12,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "SELECT d.Id, titulo, CantidadCanciones,UrlImagenTapa, e.Descripcion as Genero, e.Id as IdGenero, TE.Descripcion AS PLATAFORMA, TE.Id as IdPlataforma FROM DISCOS as D inner join ESTILOS as e on d.IdEstilo=e.Id INNER JOIN TIPOSEDICION AS TE on d.IdTipoEdicion = TE.Id;";
+                string consulta = "SELECT d.Id, titulo, CantidadCanciones,UrlImagenTapa, e.Descripcion as Genero, e.Id as IdGenero, TE.Descripcion AS PLATAFORMA, TE.Id as IdPlataforma FROM DISCOS as D inner join ESTILOS as e on d.IdEstilo=e.Id INNER JOIN TIPOSEDICION AS TE on d.IdTipoEdicion = TE.Id AND d.Activo=1;";
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
 
@@ -109,6 +109,22 @@ namespace negocio
             catch (Exception ex) { throw ex; }  
 
 
+        }
+        public void eliminarLogico(int idDisco)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+
+                datos.setearConsulta("update DISCOS set Activo = 0 where id = @idDisco");
+                datos.setearParametro("@IdDisco", idDisco);
+                datos.ejecutarAccion();
+
+
+            }
+            catch (Exception ex) { throw ex; }
+
+            
         }
     }
 }

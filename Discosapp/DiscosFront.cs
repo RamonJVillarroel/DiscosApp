@@ -107,23 +107,42 @@ namespace Discosapp
             cargarDiscos();
         }
 
+        //eliminacion logica y fisica
+        //ficia elimina directamente sin poder recuperar
+        //logica elimina y deja la opcion de poder recuperar
+        //se hace con una columna de tipo bit (0 o 1) 
         private void btnEliminarFisico_Click(object sender, EventArgs e)
+        {
+
+            eliminar();
+        }
+        private void eliminar(bool logico =false)
         {
             DiscoNegocio disco = new DiscoNegocio();
             Disco seleccionado;
             try
             {
                 DialogResult result = MessageBox.Show("Quieres eliminar este activo?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes) {
+                if (result == DialogResult.Yes)
+                {
                     seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
-                    disco.elimnar(seleccionado.IdDisco);
+                    if (logico)
+                        disco.eliminarLogico(seleccionado.IdDisco);
+                    else
+                        disco.elimnar(seleccionado.IdDisco);
                     cargarDiscos();
-
                 }
 
             }
-            catch (Exception ex){ throw ex; }
-         
+            catch (Exception ex) { throw ex; }
+
+        }
+
+        private void btnEliminarLogico_Click(object sender, EventArgs e)
+        {
+            //para que pueda ser logico se debe setear en tru ya que
+            //de por si va en false es decir eliminar logico no funcionaria
+            eliminar(true);
         }
     }
 }
