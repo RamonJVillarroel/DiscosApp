@@ -22,7 +22,10 @@ namespace Discosapp
         private void DiscosApp_Load(object sender, EventArgs e)
         {
             cargarDiscos();
-          
+            //Defino los desplegables
+            cboCampo.Items.Add("Titulo");
+            cboCampo.Items.Add("cantidad de canciones");
+            cboCampo.Items.Add("plataforma");
         }
         //trabando con imagenes
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
@@ -51,31 +54,7 @@ namespace Discosapp
         //filtro rapido se realiza directamente con la lista en ell front por asi decirlo.
         private void btnSerchName_Click(object sender, EventArgs e)
         {
-            //requiere de una expresion lamda para realizar la busqueda.
-
-            List<Disco> listafiltrada;
-            string busqueda =  textSerchName.Text;
-            //hace una especie de ciclo contra la lista
-            if (busqueda != "")
-            {
-                //con condiciones logicas se pueden mejorar los filtros
-                listafiltrada = listaDisco.FindAll(x => x.Nombre.ToUpper().Contains(busqueda.ToUpper()));
-           
-                //devuelve todo, por lo tanto se tiene que evitar
-                dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
-                dgvDiscos.Columns["IdDisco"].Visible = false;
-                
-            }
-            else
-            {
-
-                listafiltrada = listaDisco;
-               
-            }
-                dgvDiscos.DataSource = null;
-                dgvDiscos.DataSource = listafiltrada;
-                //para limpiarfiltros
-                recargaFiltro();
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -152,7 +131,7 @@ namespace Discosapp
         }
         private void btnEliminarLogico_Click(object sender, EventArgs e)
         {
-            //para que pueda ser logico se debe setear en tru ya que
+            //para que pueda ser logico se debe setear en true ya que
             //de por si va en false es decir eliminar logico no funcionaria
             eliminar(true);
         }
@@ -164,6 +143,84 @@ namespace Discosapp
             {
                 textSerchName.Text = "";
             }
+        }
+        //mejora de filtro rapido
+        private void textSerchName_TextChanged(object sender, EventArgs e)
+        {
+            //requiere de una expresion lamda para realizar la busqueda.
+
+            List<Disco> listafiltrada;
+            string busqueda = textSerchName.Text;
+            //hace una especie de ciclo contra la lista
+            if (busqueda.Length >= 2)
+            {
+                //con condiciones logicas se pueden mejorar los filtros
+                listafiltrada = listaDisco.FindAll(x => x.Nombre.ToUpper().Contains(busqueda.ToUpper()));
+
+                //devuelve todo, por lo tanto se tiene que evitar
+                dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
+                dgvDiscos.Columns["IdDisco"].Visible = false;
+
+            }
+            else
+            {
+
+                listafiltrada = listaDisco;
+
+            }
+            dgvDiscos.DataSource = null;
+            dgvDiscos.DataSource = listafiltrada;
+            //para limpiarfiltros
+           
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "cantidad de canciones")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {   
+            DiscoNegocio discoNegocio = new DiscoNegocio();
+            try
+            {
+                string conteo = txtFiltroAvanzado.Text;
+                if (conteo.Length > 0)
+                {
+                    string campo = cboCampo.SelectedItem.ToString();
+                    string criterio = cboCriterio.SelectedItem.ToString();
+                    string filtro =txtFiltroAvanzado.Text;
+                    dgvDiscos.DataSource= discoNegocio.filtrar(campo, criterio, filtro);
+
+                }
+                else
+                {
+                    dgvDiscos.DataSource = listaDisco;
+                }
+                
+
+
+
+            }catch (Exception ex ){ throw ex; }  
+          
+
+
+
+
         }
     }
 }
