@@ -19,35 +19,23 @@ namespace Discosapp
             InitializeComponent();
         }
 
-       
-        private void textSerchName_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (textSerchName.Text == "Busqueda Por Nombre")
-            {
-                textSerchName.Text = "";
-            }
-        }
-
-
-        private void textSerchName_Leave(object sender, EventArgs e)
-        {
-            if (textSerchName.Text == "")
-            {
-                textSerchName.Text = "Busqueda Por Nombre";
-            }
-        }
-
         private void DiscosApp_Load(object sender, EventArgs e)
         {
             cargarDiscos();
+          
         }
         //trabando con imagenes
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
         {
-           
-               Disco DiscoSeleccionado= (Disco)dgvDiscos.CurrentRow.DataBoundItem;//para obttener el objeto enlazado, se transforma con un casteo explicito
+            //evaluo si es nulo porque si no iintentara rellenar con nulo y se rompera
+            if (dgvDiscos.CurrentRow != null)
+            {
+                 Disco DiscoSeleccionado= (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+                //para obttener el objeto enlazado, se transforma con un casteo explicito
                //pboxDisco.Load(DiscoSeleccionado.UrlImagenTapa);//despues se puede realizar la carga
                 cargarImagen(DiscoSeleccionado.UrlImagenTapa);
+            }
+           
         }
         private void cargarImagen(string imagen)
         {
@@ -60,12 +48,34 @@ namespace Discosapp
             }
 
         }
-
+        //filtro rapido se realiza directamente con la lista en ell front por asi decirlo.
         private void btnSerchName_Click(object sender, EventArgs e)
         {
-            string name = textSerchName.Text;
-            MessageBox.Show(name);
-            
+            //requiere de una expresion lamda para realizar la busqueda.
+
+            List<Disco> listafiltrada;
+            string busqueda =  textSerchName.Text;
+            //hace una especie de ciclo contra la lista
+            if (busqueda != "")
+            {
+                //con condiciones logicas se pueden mejorar los filtros
+                listafiltrada = listaDisco.FindAll(x => x.Nombre.ToUpper().Contains(busqueda.ToUpper()));
+           
+                //devuelve todo, por lo tanto se tiene que evitar
+                dgvDiscos.Columns["UrlImagenTapa"].Visible = false;
+                dgvDiscos.Columns["IdDisco"].Visible = false;
+                
+            }
+            else
+            {
+
+                listafiltrada = listaDisco;
+               
+            }
+                dgvDiscos.DataSource = null;
+                dgvDiscos.DataSource = listafiltrada;
+                //para limpiarfiltros
+                recargaFiltro();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -145,6 +155,15 @@ namespace Discosapp
             //para que pueda ser logico se debe setear en tru ya que
             //de por si va en false es decir eliminar logico no funcionaria
             eliminar(true);
+        }
+
+        private void recargaFiltro()
+        {
+            string filtro = textSerchName.Text;
+            if (filtro != "")
+            {
+                textSerchName.Text = "";
+            }
         }
     }
 }
