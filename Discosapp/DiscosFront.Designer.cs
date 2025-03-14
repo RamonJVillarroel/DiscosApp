@@ -222,7 +222,7 @@
             this.btnSerchName.TabIndex = 18;
             this.btnSerchName.Text = "Buscar";
             this.btnSerchName.UseVisualStyleBackColor = true;
-            this.btnSerchName.Click += new System.EventHandler(this.btnSerchName_Click);
+         
             // 
             // DiscosApp
             // 

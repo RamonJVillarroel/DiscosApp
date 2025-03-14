@@ -13,7 +13,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "SELECT d.Id, titulo, CantidadCanciones,UrlImagenTapa, e.Descripcion as Genero, e.Id as IdGenero, TE.Descripcion AS PLATAFORMA, TE.Id as IdPlataforma FROM DISCOS as D inner join ESTILOS as e on d.IdEstilo=e.Id INNER JOIN TIPOSEDICION AS TE on d.IdTipoEdicion = TE.Id AND d.Activo=1;";
+                string consulta = "SELECT d.Id, titulo, FechaLanzamiento,CantidadCanciones,UrlImagenTapa, e.Descripcion as Genero, e.Id as IdGenero, TE.Descripcion AS PLATAFORMA, TE.Id as IdPlataforma FROM DISCOS as D inner join ESTILOS as e on d.IdEstilo=e.Id INNER JOIN TIPOSEDICION AS TE on d.IdTipoEdicion = TE.Id AND d.Activo=1;";
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
 
@@ -23,6 +23,7 @@ namespace negocio
                     aux.IdDisco = (int)datos.Lector["Id"];
                     aux.Nombre = (string)datos.Lector["titulo"];
                     aux.CantidadDeCanciones = (int)datos.Lector["CantidadCanciones"];
+                    aux.fechaDeLanzamiento = (DateTime)datos.Lector["FechaLanzamiento"];
                     //verificacion de que no sea nulo
                     //if (!(datos.Lector.IsDBNull(datos.Lector.GetOrdinal("UrlImagenTapa"))))
                     //{
